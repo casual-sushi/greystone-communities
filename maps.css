@@ -1,0 +1,173 @@
+.project-text.is-description,
+.project-text.is-description p {
+  font-size: 0.75rem !important;
+  line-height: 1.5;
+}
+
+.project-text p {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.project-cards-wrapper::-webkit-scrollbar {
+  width: 0.375rem;
+}
+
+.project-cards-wrapper::-webkit-scrollbar-track {
+  background-color: #00000010;
+}
+
+.project-cards-wrapper::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 0.5rem;
+}
+
+.auto-complete_wrapper {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.auto-complete_wrapper > input {
+  height: 5.125rem;
+  width: 100%;
+  margin: 0;
+  padding: 0 2rem 0 2rem;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: inherit;
+  text-overflow: ellipsis;
+  color: #fff;
+  outline: none;
+  border-radius: 0.5rem;
+  border: 0;
+  background-color: #2a313b;
+  transition: all 0.4s ease;
+  -webkit-transition: all -webkit-transform 0.4s ease;
+}
+
+.auto-complete_wrapper > input::placeholder {
+  color: #fff;
+  transition: all 0.3s ease;
+  -webkit-transition: all -webkit-transform 0.3s ease;
+}
+
+.auto-complete_wrapper > input:hover::placeholder {
+  color: #fff;
+  transition: all 0.3s ease;
+  -webkit-transition: all -webkit-transform 0.3s ease;
+}
+
+.auto-complete_wrapper > input:focus::placeholder {
+  padding: 0.1rem 0.6rem;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.auto-complete_wrapper > input:focus::selection {
+  background-color: rgba(255, 122, 122, 0.15);
+}
+
+.auto-complete_wrapper > input::selection {
+  background-color: rgba(255, 122, 122, 0.15);
+}
+
+.auto-complete_wrapper > input:hover {
+  color: #fff;
+  transition: all 0.3s ease;
+  -webkit-transition: all -webkit-transform 0.3s ease;
+}
+
+.auto-complete_wrapper > input:focus {
+  color: #fff;
+  /* border: 0.06rem solid rgba(255, 122, 122, 0.8); */
+}
+
+.auto-complete_wrapper > ul {
+  position: absolute;
+  max-height: 15rem;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: 5.125rem 0 0 0;
+  padding: 0;
+  z-index: 1;
+  list-style: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+  background-color: #2a313b;
+  border: 1px solid rgba(33, 33, 33, 0.07);
+  box-shadow: 0 3px 6px rgba(149, 157, 165, 0.15);
+  outline: none;
+  transition: opacity 0.15s ease-in-out;
+  -moz-transition: opacity 0.15s ease-in-out;
+  -webkit-transition: opacity 0.15s ease-in-out;
+}
+
+.auto-complete_wrapper > ul::-webkit-scrollbar {
+  width: 0.375rem;
+}
+
+.auto-complete_wrapper > ul::-webkit-scrollbar-track {
+  background-color: #ffffff10;
+}
+
+.auto-complete_wrapper > ul::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border-radius: 0.5rem;
+}
+
+.auto-complete_wrapper > ul[hidden],
+.auto-complete_wrapper > ul:empty {
+  display: block;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.empty_search {
+  padding: 1rem 1.8rem;
+  text-align: left;
+  font-size: 1rem;
+  color: #ffffff90;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.auto-complete_wrapper > ul > li {
+  /* margin-bottom: 0.3rem; */
+  padding: 0.5rem 1.8rem;
+  text-align: left;
+  font-size: 1rem;
+  color: #ffffff90;
+  /* border-radius: 0.35rem; */
+  background-color: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.2s ease;
+}
+
+.auto-complete_wrapper > ul > li mark {
+  background-color: transparent;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.auto-complete_wrapper > ul > li:hover {
+  cursor: pointer;
+  /* background-color: rgba(255, 122, 122, 0.15); */
+  background-color: #ffffff05;
+}
+
+.auto-complete_wrapper > ul > li[aria-selected="true"] {
+  /* background-color: rgba(255, 122, 122, 0.15); */
+  color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+  .auto-complete_wrapper > input {
+    width: 100%;
+  }
+}
