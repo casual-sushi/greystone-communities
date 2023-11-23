@@ -5,7 +5,7 @@ window.fsAttributes.push([
   (listInstances) => {
     // Load Map once the locations have finished rendering
     loadMap();
-  }
+  },
 ]);
 
 // data-selection
@@ -33,11 +33,11 @@ const loadMap = function () {
         place.name = elem.querySelector(".location-name").innerText;
         place.city = elem.querySelector(".location-city").innerText;
         place.description = elem.querySelector(
-          ".location-description"
+          ".location-description",
         ).innerHTML;
         place.lat = Number(elem.querySelector(".location-latitude").innerText);
         place.long = Number(
-          elem.querySelector(".location-longitude").innerText
+          elem.querySelector(".location-longitude").innerText,
         );
         place.region = elem.querySelector(".location-region").innerText;
 
@@ -45,10 +45,10 @@ const loadMap = function () {
         place.numberOfServices = 0;
         place.status = elem.querySelector(".location-status").innerText;
         place.organisationalType = elem.querySelector(
-          ".location-organisational-type"
+          ".location-organisational-type",
         ).innerText;
         place.dateOpened = elem.querySelector(
-          ".location-date-opened"
+          ".location-date-opened",
         ).innerText;
         place.ctaLink = elem
           .querySelector(".location-link")
@@ -79,7 +79,7 @@ const loadMap = function () {
       mapId: "7ff477d0469bb117",
       mapTypeControl: false,
       fullscreenControl: false,
-      streetViewControl: false
+      streetViewControl: false,
     });
 
     // Create info window for each marker
@@ -90,8 +90,7 @@ const loadMap = function () {
       var marker = new google.maps.Marker({
         position: new google.maps.LatLng(location.lat, location.long),
         map: map,
-        icon:
-          "https://uploads-ssl.webflow.com/611594476490a4775f74909e/65490b68ad61feab01f07153_Marker.svg",
+        icon: "https://uploads-ssl.webflow.com/611594476490a4775f74909e/65490b68ad61feab01f07153_Marker.svg",
         region: location.region,
         service: location.service,
         numberOfServices: location.numberOfServices,
@@ -105,7 +104,7 @@ const loadMap = function () {
         serviceIsSet: true,
         statusIsSet: true,
         organisationalTypeIsSet: true,
-        dateOpenedIsSet: true
+        dateOpenedIsSet: true,
       });
 
       // Adding info window to each marker
@@ -134,7 +133,6 @@ const loadMap = function () {
     
     <div class="map-marker-content">
     <h2 class="map-marker-name">${location.name}</h2>
-    <p class="map-marker-city">${location.city}<p>
     <div class="map-marker-description">${location.description}</div>
     </div>
     </div>`;
@@ -227,19 +225,18 @@ const loadMap = function () {
         new google.maps.Marker({
           label: { text: String(count), color: "#153E6D", fontSize: "10px" },
           icon: {
-            url:
-              "https://uploads-ssl.webflow.com/611594476490a4775f74909e/65490ac01e5bf40943403408_Dot.svg",
-            scaledSize: new google.maps.Size(40, 40)
+            url: "https://uploads-ssl.webflow.com/611594476490a4775f74909e/65490ac01e5bf40943403408_Dot.svg",
+            scaledSize: new google.maps.Size(40, 40),
           },
           position,
-          zIndex: Number(google.maps.Marker.MAX_ZINDEX) + count
-        })
+          zIndex: Number(google.maps.Marker.MAX_ZINDEX) + count,
+        }),
     };
 
     //set clustering algorithm
     const markerClusterAlgo = new markerClusterer.SuperClusterAlgorithm({
       maxZoom: 10,
-      radius: 50
+      radius: 50,
     });
 
     //decaler new marker clusterer
@@ -252,7 +249,7 @@ const loadMap = function () {
         //IMPORTANT
         //FOR SOME REASON ADDING THE CLICK HANDLER HERE PREVENTS THE MAP FROM ZOOMING IN
         //BUT IT DOESNT RETURN THE EVENT TARGET
-      }
+      },
     });
 
     //SETUP PROJECT CARDS SHOW/HIDE
@@ -360,7 +357,7 @@ const loadMap = function () {
           let services = [];
 
           servicesTemp = [
-            ...locationElement.querySelectorAll(".service-description")
+            ...locationElement.querySelectorAll(".service-description"),
           ];
 
           servicesTemp.forEach((service) => services.push(service.innerText));
@@ -373,8 +370,8 @@ const loadMap = function () {
 
       const description = () => {
         if (locationElement.querySelector(".map-wysiwyg")) {
-          const description = locationElement.querySelector(".map-wysiwyg")
-            .innerHTML;
+          const description =
+            locationElement.querySelector(".map-wysiwyg").innerHTML;
 
           return description;
         }
@@ -386,7 +383,7 @@ const loadMap = function () {
         name: name(),
         link: link(),
         services: services(),
-        description: description()
+        description: description(),
       };
 
       return location;
@@ -413,8 +410,8 @@ const loadMap = function () {
             <div class="c-expand_card-overlay"></div>
           </div>
           <div class="c-expand_card-info">
-            <span class="c-expand_card-subheading">${locationInfo.city}</span>
             <span class="c-expand_card-heading">${locationInfo.name}</span>
+            <span class="c-expand_card-subheading">${locationInfo.city}</span>
             <a href="#" class="c-expand_card-cta sublocation-cta" data-name="${locationInfo.name}" >LEARN MORE</a>
           </div>
         `;
@@ -444,9 +441,8 @@ const loadMap = function () {
             <img src="${location.img}" alt="" class="img-cover">
           </div>
           <div class="card-details">
-            <span class="project-text is-description">${location.description}</span>
             <span class="project-name is-smaller">${location.name}</span>
-            <span class="project-location">${location.city}</span>
+            <span class="project-text is-description">${location.description}</span>
           </div>
         </a>
         <div class="project-card_expand">
@@ -459,9 +455,8 @@ const loadMap = function () {
               </div>
               <div class="c-expand_info">
                 <div class="c-expand_info-header">
-                  <span class="project-text is-description">${location.description}</span>
                   <span class="project-name">${location.name}</span>
-                  <span class="project-city">${location.city}</span>
+                  <span class="project-text is-description">${location.description}</span>
                 </div>
                 <a href="${location.link}" target="_blank" class="c-expand_cta project-card-link">LEARN MORE</a>
               </div>
@@ -477,9 +472,8 @@ const loadMap = function () {
             <img src="${location.img}" alt="" class="img-cover">
           </div>
           <div class="card-details">
-            <span class="project-text is-description">${location.description}</span>
             <span class="project-name is-smaller">${location.name}</span>
-            <span class="project-location">${location.city}</span>
+            <span class="project-text is-description">${location.description}</span>
           </div>
         </a>
         <div class="project-card_expand">
@@ -492,9 +486,8 @@ const loadMap = function () {
               </div>
               <div class="c-expand_info">
                 <div class="c-expand_info-header">
-                  <span class="project-text is-description">${location.description}</span>
                   <span class="project-name">${location.name}</span>
-                  <span class="project-city">${location.city}</span>
+                  <span class="project-text is-description">${location.description}</span>
                 </div>
               </div>
             </div>
@@ -508,9 +501,8 @@ const loadMap = function () {
             <img src="${location.img}" alt="" class="img-cover">
           </div>
           <div class="card-details">
-            <span class="project-text is-description">${location.description}</span>
             <span class="project-name is-smaller">${location.name}</span>
-            <span class="project-location">${location.city}</span>
+            <span class="project-text is-description">${location.description}</span>
           </div>
         </a>
         <div class="project-card_expand">
@@ -523,9 +515,8 @@ const loadMap = function () {
               </div>
               <div class="c-expand_info">
                 <div class="c-expand_info-header">
-                  <div class="project-text is-description">${location.description}</div>
                   <span class="project-name">${location.name}</span>
-                  <span class="project-city">${location.city}</span>
+                  <div class="project-text is-description">${location.description}</div>
                 </div>
                 <a href="${location.link}" target="_blank" class="c-expand_cta project-card-link">LEARN MORE</a>
               </div>
@@ -545,7 +536,7 @@ const loadMap = function () {
       const cardExpand = projectCard.querySelector(".project-card_expand");
 
       const cardExpandOverlay = projectCard.querySelector(
-        ".card-expand-overlay"
+        ".card-expand-overlay",
       );
 
       const cardExpandClose = projectCard.querySelector(".expand-close");
@@ -562,7 +553,7 @@ const loadMap = function () {
       });
 
       const subLocationCtas = [
-        ...projectCard.querySelectorAll(".sublocation-cta")
+        ...projectCard.querySelectorAll(".sublocation-cta"),
       ];
 
       subLocationCtas.forEach((subCTA) => {
@@ -606,7 +597,7 @@ const loadMap = function () {
         document.querySelector(`${closeTrigger}`).onclick = () => {
           closeLocationsPopup();
         };
-      }
+      },
     );
 
     // render on clustering end
@@ -690,7 +681,7 @@ const loadMap = function () {
       name: "auto-complete",
       data: {
         src: gmarkers,
-        keys: ["name"]
+        keys: ["name"],
       },
       tabSelect: true,
       searchEngine: "loose",
@@ -709,7 +700,7 @@ const loadMap = function () {
             list.prepend(message);
           }
         },
-        noResults: true
+        noResults: true,
       },
       events: {
         input: {
@@ -726,14 +717,14 @@ const loadMap = function () {
             // simulate event so CMS filter registers the change
             const simulatedEvent = new Event("input", { bubbles: true });
             autoCompleteJS.input.dispatchEvent(simulatedEvent);
-          }
-        }
+          },
+        },
       },
       resultItem: {
         highlight: {
-          render: true
-        }
-      }
+          render: true,
+        },
+      },
     });
 
     autoCompleteJS.start();
@@ -859,14 +850,14 @@ const loadMap = function () {
 
     function selectAllInit() {
       const checkboxDropdowns = [
-        ...document.querySelectorAll(".m_dropdown-form")
+        ...document.querySelectorAll(".m_dropdown-form"),
       ];
 
       checkboxDropdowns.forEach((dropdown) => {
         const selectButton = dropdown.querySelector(".m_select-all");
 
         const dropdownCheckboxes = [
-          ...dropdown.querySelectorAll("[data-selection]")
+          ...dropdown.querySelectorAll("[data-selection]"),
         ];
 
         dropdownCheckboxes.forEach((checkbox) => {
