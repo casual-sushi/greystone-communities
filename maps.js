@@ -442,6 +442,7 @@ const loadMap = function () {
           </div>
           <div class="card-details">
             <span class="project-name is-smaller">${location.name}</span>
+            <span class="project-city">${location.city}</span>
             <span class="project-text is-description">${location.description}</span>
           </div>
         </a>
@@ -456,6 +457,7 @@ const loadMap = function () {
               <div class="c-expand_info">
                 <div class="c-expand_info-header">
                   <span class="project-name">${location.name}</span>
+                  <span class="project-city">${location.city}</span>
                   <span class="project-text is-description">${location.description}</span>
                 </div>
                 <a href="${location.link}" target="_blank" class="c-expand_cta project-card-link">LEARN MORE</a>
@@ -473,6 +475,7 @@ const loadMap = function () {
           </div>
           <div class="card-details">
             <span class="project-name is-smaller">${location.name}</span>
+            <span class="project-city">${location.city}</span>
             <span class="project-text is-description">${location.description}</span>
           </div>
         </a>
@@ -487,6 +490,7 @@ const loadMap = function () {
               <div class="c-expand_info">
                 <div class="c-expand_info-header">
                   <span class="project-name">${location.name}</span>
+                  <span class="project-city">${location.city}</span>
                   <span class="project-text is-description">${location.description}</span>
                 </div>
               </div>
@@ -502,6 +506,7 @@ const loadMap = function () {
           </div>
           <div class="card-details">
             <span class="project-name is-smaller">${location.name}</span>
+            <span class="project-city">${location.city}</span>
             <span class="project-text is-description">${location.description}</span>
           </div>
         </a>
@@ -516,6 +521,7 @@ const loadMap = function () {
               <div class="c-expand_info">
                 <div class="c-expand_info-header">
                   <span class="project-name">${location.name}</span>
+                  <span class="project-city">${location.city}</span>
                   <div class="project-text is-description">${location.description}</div>
                 </div>
                 <a href="${location.link}" target="_blank" class="c-expand_cta project-card-link">LEARN MORE</a>
