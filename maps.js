@@ -44,12 +44,12 @@ const loadMap = function () {
         place.service = [];
         place.numberOfServices = 0;
         place.status = elem.querySelector(".location-status").innerText;
-        place.organisationalType = elem.querySelector(
-          ".location-organisational-type",
-        ).innerText;
-        place.dateOpened = elem.querySelector(
-          ".location-date-opened",
-        ).innerText;
+        // place.organisationalType = elem.querySelector(
+        //   ".location-organisational-type",
+        // ).innerText;
+        // place.dateOpened = elem.querySelector(
+        //   ".location-date-opened",
+        // ).innerText;
         place.ctaLink = elem
           .querySelector(".location-link")
           .getAttribute("href");
