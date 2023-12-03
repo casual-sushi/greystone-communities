@@ -19,8 +19,6 @@ const loadMap = function () {
     var dynPlaces = document.querySelectorAll(".location");
     let dynPlacesSet = new Set();
 
-    console.log("hello");
-
     // Loop through CMS items to populate locations array
     function setPlaces() {
       dynPlaces.forEach(function (elem) {
@@ -41,9 +39,24 @@ const loadMap = function () {
         );
         place.region = elem.querySelector(".location-region").innerText;
 
-        place.service = [];
+        
+        //add management
+        place.management = [];
+        const tempManagement = [...elem.querySelectorAll(".location-management")];
+        tempManagement.forEach((management) => {
+          place.management.push(management.innerText)
+        })
+        
+
         place.numberOfServices = 0;
-        place.status = elem.querySelector(".location-status").innerText;
+
+        //add status
+        const tempStatus = [...elem.querySelectorAll(".location-status")];
+        place.status = [];
+        tempStatus.forEach((status) => {
+          place.status.push(status.innerText);
+        });
+        // place.status = elem.querySelector(".location-status").innerText;
         // place.organisationalType = elem.querySelector(
         //   ".location-organisational-type",
         // ).innerText;
@@ -93,18 +106,19 @@ const loadMap = function () {
         icon: "https://uploads-ssl.webflow.com/611594476490a4775f74909e/65490b68ad61feab01f07153_Marker.svg",
         region: location.region,
         service: location.service,
-        numberOfServices: location.numberOfServices,
-        servicesUnchecked: location.numberOfServices,
+        management: location.management,
+        // numberOfServices: location.numberOfServices,
+        // servicesUnchecked: location.numberOfServices,
         status: location.status,
-        organisationalType: location.organisationalType,
-        dateOpened: location.dateOpened,
+        // organisationalType: location.organisationalType,
+        // dateOpened: location.dateOpened,
         name: location.name,
         description: location.description,
-        regionIsSet: true,
-        serviceIsSet: true,
-        statusIsSet: true,
-        organisationalTypeIsSet: true,
-        dateOpenedIsSet: true,
+        // regionIsSet: true,
+        // serviceIsSet: true,
+        // statusIsSet: true,
+        // organisationalTypeIsSet: true,
+        // dateOpenedIsSet: true,
       });
 
       // Adding info window to each marker
@@ -665,6 +679,7 @@ const loadMap = function () {
             managementSet.add(checkbox.dataset.name);
           } else {
             managementSet.delete(checkbox.dataset.name);
+
           }
         }
 
@@ -795,22 +810,31 @@ const loadMap = function () {
 
       //filter status
       let statusFilters = [...statusSet];
+   
       if (statusFilters.length > -1) {
         gmarkerFilters.status = (status) => {
-          if (statusFilters.indexOf(status) > -1) {
-            return true;
-          } else {
-            return false;
+          
+          let result;
+          
+          if(status.find((x) => statusFilters.includes(x))){
+
+            result = true;
+          }else{
+            result = false;
           }
-        };
+          
+          return result;
+        }
       }
+
+
 
       //filter management
       let managementFilter = [...managementSet];
 
       if (managementFilter.length > -1) {
-        gmarkerFilters.service = (service) =>
-          service.find((x) => managementFilter.includes(x));
+        gmarkerFilters.management = (management) =>
+        management.find((x) => managementFilter.includes(x));
       }
 
       const filteredMarkers = filterArray(gmarkers, gmarkerFilters);
