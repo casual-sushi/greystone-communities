@@ -636,6 +636,7 @@ const loadMap = function () {
     let regionSet = new Set();
     let statusSet = new Set();
     let managementSet = new Set();
+    let managementCounter = 0;
 
     checkboxes.forEach(function (checkbox) {
       //add/remove regions
@@ -651,6 +652,7 @@ const loadMap = function () {
       //add/remove management
       if (checkbox.dataset.selection === "management") {
         managementSet.add(checkbox.dataset.name);
+        managementCounter = managementCounter + 1;
       }
 
       //run filter on each click
@@ -832,11 +834,18 @@ const loadMap = function () {
       //filter management
       let managementFilter = [...managementSet];
 
-      if (managementFilter.length > -1) {
-        gmarkerFilters.management = (management) =>
-        management.find((x) => managementFilter.includes(x));
+      //don't filter by management when all the options are selected
+      if(managementFilter.length === managementCounter){
+        gmarkerFilters.management = null;
+      }else{
+        if (managementFilter.length > -1) {
+          gmarkerFilters.management = (management) =>
+          management.find((x) => managementFilter.includes(x));
+        }
+  
       }
 
+      
       const filteredMarkers = filterArray(gmarkers, gmarkerFilters);
 
       resetMarkers(filteredMarkers);
